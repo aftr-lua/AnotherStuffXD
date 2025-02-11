@@ -1,4 +1,5 @@
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+local Sense = loadstring(game:HttpGet('https://raw.githubusercontent.com/jensonhirst/Sirius/request/library/sense/source.lua'))()
 
 local Window = Rayfield:CreateWindow({
     Name = "Mafiozi hub",
@@ -96,4 +97,100 @@ ExploitsTab:CreateButton({
 })
 
 FuncTab:CreateLabel("Tab by Aftr")
+local Slider = FuncTab:CreateSlider({
+   Name = "Walk Speed",
+   Range = {1, 350},
+   Increment = 1,
+   Suffix = "Speed",
+   CurrentValue = 16,
+   Flag = "sliderws", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = (Value)
+   end,
+})
+
+local Slider = FuncTab:CreateSlider({
+   Name = "Jump Power",
+   Range = {1, 350},
+   Increment = 1,
+   Suffix = "Power",
+   CurrentValue = 16,
+   Flag = "sliderjp", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+        game.Players.LocalPlayer.Character.Humanoid.JumpPower = (Value)
+   end,
+})
+
+local Slider = FuncTab:CreateSlider({
+   Name = "Gravity",
+   Range = {1, 350},
+   Increment = 1,
+   Suffix = "Speed",
+   CurrentValue = 16,
+   Flag = "sliderjp", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+        game.Workspace.Gravity = (Value)
+   end,
+})
+local Toggle = FuncTab:CreateToggle({
+   Name = "ESP",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(value)
+           if value then
+                   Sense.teamSettings.enemy.enabled = true
+                   Sense.teamSettings.enemy.box = true
+                   Sense.teamSettings.friendly.enabled = true
+                   Sense.teamSettings.friendly.box = true
+                   Sense.Load()       
+           else
+               Sense.Unload()
+           end
+    end,
+})
+
+local Toggle = FuncTab:CreateToggle({
+   Name = "Box Fill",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(value)
+           if value then
+                   Sense.teamSettings.enemy.boxFill = true
+                   Sense.teamSettings.friendly.boxFill = true    
+           else
+               Sense.teamSettings.enemy.boxFill = false
+               Sense.teamSettings.enemy.boxFill = false 
+           end
+    end,
+})
+
+local Toggle = FuncTab:CreateToggle({
+   Name = "Name",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(value)
+           if value then
+                   Sense.teamSettings.enemy.name = true
+                   Sense.teamSettings.friendly.name = true    
+           else
+               Sense.teamSettings.enemy.name = false
+               Sense.teamSettings.enemy.name = false 
+           end
+    end,
+})
+
+local Toggle = FuncTab:CreateToggle({
+   Name = "Distance",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(value)
+           if value then
+                   Sense.teamSettings.enemy.distance = true
+                   Sense.teamSettings.friendly.distance = true    
+           else
+               Sense.teamSettings.enemy.distance = false
+               Sense.teamSettings.enemy.distance = false 
+           end
+    end,
+})
 
