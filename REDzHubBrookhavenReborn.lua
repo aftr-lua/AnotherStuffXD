@@ -1,8 +1,6 @@
 local number = math.random(1, 2)
 if number == 1 then
-  print("its 1 bro")
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/aftr-lua/AnotherStuffXD/refs/heads/main/first.lua"))()
 elseif number == 2 then
-  print("its 2 bro")
-else
-  print("error")
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/aftr-lua/AnotherStuffXD/refs/heads/main/first.lua"))()
 end
